@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_AJAX_GET</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            padding: 20px;
+            background-color: rgb(216, 245, 197);
+        }
+        
+        button {
+            margin: 20px;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            background-color: brown;
+            color: cornsilk;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>用原生JavaScript发送Ajax的get请求</h2>
+    <button>点击发送请求</button>
+    <p></p>
+    <script>
+        var btn = document.querySelector('button');
+        var text = document.querySelector('p');
+        btn.onclick = function() {
+            // 1.实例化一个xhr对象
+            var xhr = new XMLHttpRequest();
+            // 2.判断xhr的状态，确定回复
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(11111);
+                    console.log(xhr.response);
+                };
+            };
+            // 3.使用get发送Ajax请求，写好方法、URL地址、携带参数
+            xhr.open('get', 'https://apistore.eolinker.com/#/api/detail/?productID=88');
+            // 4.发送请求
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
