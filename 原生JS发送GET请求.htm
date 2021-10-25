@@ -42,11 +42,13 @@
             // 2.判断xhr的状态，确定回复
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log(11111);
+                    // console.log(11111);
                     console.log(xhr.response);
+                    text.innerHTML = xhr.response;
                 };
             };
             // 3.使用get发送Ajax请求，写好方法、URL地址、携带参数
+            //这里我又没有服务端，怎么发送请求练习呀o(╥﹏╥)o
             xhr.open('get', 'https://apistore.eolinker.com/#/api/detail/?productID=88');
             // 4.发送请求
             xhr.send();
